@@ -41,9 +41,17 @@
         </div>
     </nav>
     <div class="container my-3">
-        <button type="button" class="btn btn-primary add-book" data-bs-toggle="modal" data-bs-target="#myModal">
-            Thêm sách
-        </button>
+        <div class="d-flex">
+            <button type="button" class="btn btn-primary add-book" data-bs-toggle="modal" data-bs-target="#myModal">
+                Thêm sách
+            </button>
+            <form class="d-flex ms-auto" role="search">
+                <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Search"
+                    onkeyup="searchBooks()">
+                <button class="btn btn-outline-success" id="searchBtn">Search</button>
+            </form>
+        </div>
+
         <div class="modal" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">

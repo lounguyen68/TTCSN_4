@@ -166,11 +166,26 @@ document.querySelector('.add-book').onclick = function () {
 }
 
 function logout() {
-    // Xoá thông tin đăng nhập trong session storage
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('accessToken');
-
-    // Chuyển hướng đến trang đăng nhập
     window.location.href = 'login.html';
 }
+
+document.getElementById('searchBtn').addEventListener('click', function (event) {
+    event.preventDefault();
+    searchBooks();
+});
+
+function searchBooks() {
+    let searchValue = document.getElementById('searchInput').value;
+    getBooks(function (books) {
+        let filteredBooks = books.filter(function (book) {
+            return book.TenSach.toLowerCase().includes(searchValue.toLowerCase());
+        });
+        renderBooks(filteredBooks);
+    });
+}
+
+
+
 
