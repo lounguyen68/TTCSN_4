@@ -30,3 +30,9 @@ function renderReaders(readers) {
 
 
 getReaders(renderReaders);
+
+const logoutLink = document.querySelector('.logout-link');
+logoutLink.addEventListener('click', logout);
+function logout() {
+    window.location.href = 'login.html';
+}

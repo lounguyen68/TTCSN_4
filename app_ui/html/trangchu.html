@@ -11,6 +11,12 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <title>Document</title>
+    <style>
+        .slider {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,10 +42,19 @@
                         <a class="nav-link" href="qlndung.html">Quản lý người dùng</a>
                     </li>
                 </ul>
+                <a class="nav-link ms-auto logout-link" href="#">Đăng xuất</a>
             </div>
         </div>
     </nav>
+    <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/viVN/Images/hoc-blackpink-mh-dt_tcm337-1022401.jpg"
+        alt="" class="slider">
 </body>
-<script src="/app_ui/js/qls.js"></script>
+<script>
+    const logoutLink = document.querySelector('.logout-link');
+    logoutLink.addEventListener('click', logout);
+    function logout() {
+        window.location.href = 'login.html';
+    }
+</script>
 
 </html>

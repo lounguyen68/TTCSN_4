@@ -46,6 +46,7 @@ function form(option) {
         }
         function getUser(username, password) {
             if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
+                isLoggedIn = true;
                 window.location.href = '/app_ui/html/qls.html';
             } else {
                 alert('Sai tên đăng nhập hoặc mật khẩu');
@@ -94,3 +95,4 @@ function testConfirmPassword(selection, password) {
         }
     }
 }
+
