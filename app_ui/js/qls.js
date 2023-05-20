@@ -1,4 +1,4 @@
-let Api = 'http://codeduo.click/api/sach'
+let Api = 'http://codeduo.click/api/sach/'
 
 function start() {
     getBooks(renderBooks);
@@ -10,9 +10,15 @@ start()
 function getBooks(callback) {
     fetch(Api)
         .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Có lỗi xảy ra khi lấy sách.');
+            }
             return response.json();
         })
         .then(callback)
+        .catch(function (error) {
+            console.error(error);
+        });
 }
 
 function renderBooks(books) {
@@ -83,12 +89,18 @@ function handleDelete(MaSach) {
     let options = {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
-    }
+    };
 
     fetch(Api + MaSach, options)
-        .then(function () {
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Có lỗi xảy ra khi xóa sách.');
+            }
             document.querySelector(`.book-item-${MaSach}`).remove();
         })
+        .catch(function (error) {
+            console.error(error);
+        });
 }
 
 function handleUpdate(MaSach) {
@@ -136,6 +148,9 @@ function editBook(book) {
             document.querySelector('input[name="NamXB"]').value = '';
             getBooks(renderBooks);
         })
+        .catch(function (error) {
+            console.error(error);
+        });
 }
 
 
