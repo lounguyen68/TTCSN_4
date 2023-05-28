@@ -1,45 +1,32 @@
-const form = document.querySelector('#myForm');
-const formData = {};
+const form = document.getElementById('myForm');
 
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-console.log(formData)
-let Api = 'http://localhost:3000/users/'
+    const soThe = document.getElementById('SoThe').value;
+    const ngayBatDau = document.getElementById('NgayBatDau').value;
+    const ngayKetThuc = document.getElementById('NgayKetThuc').value;
+    const ghiChu = document.getElementById('GhiChu').value;
 
+    const data = {
+        SoThe: soThe,
+        NgayBatDau: ngayBatDau,
+        NgayKetThuc: ngayKetThuc,
+        GhiChu: ghiChu
+    };
 
-function createReader(data) {
-    let options = {
+    fetch('http://localhost:3003/api/thethuvien', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
-    }
-
-    fetch(Api, options)
-        .then(function (response) {
-            return response.json();
-        })
-}
-function handleCreateForm() {
-    let createBtn = document.querySelector('.create')
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Ngăn chặn submit form
-
-        // Lấy dữ liệu từ các trường nhập liệu và lưu vào biến data
-        formData.fullName = form.elements.fullName.value;
-        formData.email = form.elements.email.value;
-        formData.phone = form.elements.phone.value;
-        formData.address = form.elements.address.value;
-        formData.dob = form.elements.dob.value;
-        formData.gender = form.elements.gender.value;
-        createReader(formData)
-        console.log(formData); // Hiển thị dữ liệu nhập vào trong console
     })
-
-}
-handleCreateForm();
-
-const logoutLink = document.querySelector('.logout-link');
-logoutLink.addEventListener('click', logout);
-function logout() {
-    window.location.href = 'login.html';
-}
-
+        .then(response => response.json())
+        .then(() => {
+            alert('Tạo thành công');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});

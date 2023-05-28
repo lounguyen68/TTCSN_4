@@ -27,13 +27,13 @@
                         <a class="nav-link" aria-current="page" href="trangchu.html">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  active" href="qls.html">Quản lý sách</a>
+                        <a class="nav-link" href="qls.html">Quản lý sách</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="thethuvien.html">Thẻ thư viện</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="qldocgia.html">Quản lý đọc giả</a>
+                        <a class="nav-link  active" href="qldocgia.html">Quản lý đọc giả</a>
                     </li>
                 </ul>
             </div>
@@ -42,12 +42,12 @@
     </nav>
     <div class="container my-3">
         <div class="d-flex">
-            <button type="button" class="btn btn-primary add-book" data-bs-toggle="modal" data-bs-target="#myModal">
-                Thêm sách
+            <button type="button" class="btn btn-primary add-user" data-bs-toggle="modal" data-bs-target="#myModal">
+                Thêm người dùng
             </button>
             <form class="d-flex ms-auto" role="search">
                 <input class="form-control me-2" id="searchInput" type="search" placeholder="Search" aria-label="Search"
-                    onkeyup="searchBooks()">
+                    onkeyup="searchUsers()">
                 <button class="btn btn-outline-success" id="searchBtn">Search</button>
             </form>
         </div>
@@ -56,34 +56,26 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Quản lý sách</h4>
+                        <h4 class="modal-title">Quản lý đọc giả</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label>Mã sách</label>
-                                <input type="text" class="form-control" name="MaSach">
+                                <label>Mã đọc giả</label>
+                                <input type="text" class="form-control" name="MaDocGia">
                             </div>
                             <div class="mb-3">
-                                <label>Tên sách</label>
-                                <input type="text" class="form-control" name="TenSach">
+                                <label>Tên đọc giả</label>
+                                <input type="text" class="form-control" name="TenDocGia">
                             </div>
                             <div class="mb-3">
-                                <label>Mã tác giả</label>
-                                <input type="text" class="form-control" name="MaTacGia">
+                                <label>Địa chỉ</label>
+                                <input type="text" class="form-control" name="DiaChi">
                             </div>
                             <div class="mb-3">
-                                <label>Mã thể loại</label>
-                                <input type="text" class="form-control" name="MaTheLoai">
-                            </div>
-                            <div class="mb-3">
-                                <label>Mã NXB</label>
-                                <input type="text" class="form-control" name="MaNXB">
-                            </div>
-                            <div class="mb-3">
-                                <label>Năm xuất bản</label>
-                                <input type="text" class="form-control" name="NamXB">
+                                <label>Số thẻ</label>
+                                <input type="text" class="form-control" name="SoThe">
                             </div>
                         </form>
                     </div>
@@ -100,23 +92,20 @@
         <table class="table table-bordered mt-3">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Mã sách</th>
-                    <th scope="col">Tên sách</th>
-                    <th scope="col">Mã tác giả</th>
-                    <th scope="col">Mã thể loại</th>
-                    <th scope="col">Mã NXB</th>
-                    <th scope="col">Năm xuất bản</th>
+                    <th scope="col">Mã đọc giả</th>
+                    <th scope="col">Tên đọc giả</th>
+                    <th scope="col">Địa chỉ</th>
+                    <th scope="col">Số thẻ</th>
                     <th scope="col">Tùy chỉnh</th>
                 </tr>
             </thead>
-            <tbody class="list-books">
+            <tbody class="list-users">
 
             </tbody>
         </table>
     </div>
-
 </body>
-<script src="/app_ui/js/qls.js"></script>
+<script src="/app_ui/js/docgia.js"></script>
 <script>
 
 </script>
