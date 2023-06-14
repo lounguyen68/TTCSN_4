@@ -1,4 +1,4 @@
-let Api = 'http://codeduo.click/api/sach/'
+let Api = 'http://localhost:3003/api/sach/'
 
 function start() {
     getBooks(renderBooks);
@@ -177,7 +177,7 @@ document.getElementById('searchBtn').addEventListener('click', function (event) 
 });
 
 function searchBooks() {
-    let searchValue = document.getElementById('searchInput').value;
+    let searchValue = document.getElementById('searchInput').value.toLowerCase();
     getBooks(function (books) {
         let filteredBooks = books.filter(function (book) {
             return book.TenSach.toLowerCase().includes(searchValue.toLowerCase());
